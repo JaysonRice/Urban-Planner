@@ -6,15 +6,12 @@ namespace Planner
     {
         // Private fields. Fields are very similar to properties, but are by convention private
         // and they don't have a getter and setter
-        private int _milesDriven;
 
         private string _designer = "Jayson Rice";
         private string _address;
         private string _owner;
 
         private DateTime _dateConstructed;
-
-        private int _milesAtLastService;
 
         // Public properties
         public int Stories { get; set; }
@@ -38,12 +35,23 @@ namespace Planner
         {
             _owner = buyer;
         }
-
-        public int GetMaintenanceAtMileage()
+        public string BuildingOwner()
         {
-            return _milesAtLastService + 5_000;
+            return _owner;
         }
 
+        public string GetDesigner()
+        {
+            return _designer;
+        }
+        public string GetAddress()
+        {
+            return _address;
+        }
+        public DateTime GetDateBuilt()
+        {
+            return _dateConstructed;
+        }
         // Constructor Method
         public Building(string address)
         {
