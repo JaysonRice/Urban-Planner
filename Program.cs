@@ -7,7 +7,15 @@ namespace Planner
     {
         static void Main(string[] args)
         {
-            List<Building> buildings = new List<Building>();
+
+            City JohnsonCity = new City()
+            {
+                Name = "Johnson City",
+                Mayor = "Jenny Brock",
+                Year = 1856
+            };
+
+            // List<Building> buildings = new List<Building>();
 
             Building KevinsHouse = new Building("237 Street Dr")
             {
@@ -18,7 +26,7 @@ namespace Planner
 
             KevinsHouse.Construct();
             KevinsHouse.Purchase("Kevin Mast");
-            buildings.Add(KevinsHouse);
+            JohnsonCity.AddBuilding(KevinsHouse);
 
             Building LindseysBuilding = new Building("512 8th Avenue")
             {
@@ -28,7 +36,7 @@ namespace Planner
             };
             LindseysBuilding.Construct();
             LindseysBuilding.Purchase("Lindsey King");
-            buildings.Add(LindseysBuilding);
+            JohnsonCity.AddBuilding(LindseysBuilding);
 
             Building RonsHouse = new Building("223 Stone Dr")
             {
@@ -38,9 +46,10 @@ namespace Planner
             };
             RonsHouse.Construct();
             RonsHouse.Purchase("Ron Rice");
-            buildings.Add(RonsHouse);
+            JohnsonCity.AddBuilding(RonsHouse);
 
-            foreach (Building building in buildings)
+            Console.WriteLine($"{JohnsonCity.Name}'s List of Buildings");
+            foreach (Building building in JohnsonCity.GetBuildings())
             {
                 Console.WriteLine(building.GetAddress());
                 Console.WriteLine("---------------");
